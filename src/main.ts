@@ -15,7 +15,7 @@ esriConfig.portalUrl = "https://jsapi.maps.arcgis.com/";
 
 init();
 
-function init() {
+async function init() {
   const signInButton =
     document.querySelector<HTMLCalciteButtonElement>("#sign-in-button");
 
@@ -37,44 +37,47 @@ function init() {
     portalUrl: esriConfig.portalUrl,
     popup: false,
   });
+
   esriId.registerOAuthInfos([info]);
 
-  esriId
-    .checkSignInStatus(info.portalUrl + "/sharing")
-    .then(async () => {
-      navigationUser!.hidden = false;
-      signInButton!.hidden = true;
+  try {
+    await esriId.checkSignInStatus(info.portalUrl + "/sharing");
+    navigationUser!.hidden = false;
+    signInButton!.hidden = true;
 
-      const portal = new Portal();
-      portal.authMode = "immediate";
-      await portal.load();
+    const portal = new Portal();
+    portal.authMode = "immediate";
+    await portal.load();
 
-      navigationUser!.fullName = portal.user.fullName;
-      navigationUser!.username = portal.user.username;
+    navigationUser!.fullName = portal.user.fullName;
+    navigationUser!.username = portal.user.username;
 
-      load();
-    })
-    .catch(() => {
+    load();
+  } catch (error) {
+    if ((error as Error).name === "identity-manager:not-authenticated") {
       signInButton!.hidden = false;
       navigationUser!.hidden = true;
       destroy();
-    });
+    } else {
+      console.error(error);
+    }
+  }
 
   async function destroy() {
     const arcgisMap = document.querySelector("arcgis-map");
     arcgisMap?.remove();
   }
 
-  function signInOrOut() {
-    esriId
-      .checkSignInStatus(info.portalUrl + "/sharing")
-      .then(() => {
-        esriId.destroyCredentials();
-        window.location.reload();
-      })
-      .catch(() => {
+  async function signInOrOut() {
+    try {
+      await esriId.checkSignInStatus(info.portalUrl + "/sharing");
+      esriId.destroyCredentials();
+      window.location.reload();
+    } catch (error) {
+      if ((error as Error).name === "identity-manager:not-authenticated") {
         esriId.getCredential(info.portalUrl + "/sharing");
-      });
+      }
+    }
   }
 }
 
