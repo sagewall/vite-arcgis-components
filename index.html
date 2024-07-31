@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/esri.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArcGIS JS</title>
+  </head>
+  <body>
+    <calcite-shell>
+      <calcite-navigation slot="header">
+        <calcite-navigation-logo
+          slot="logo"
+          heading="Sample"
+        ></calcite-navigation-logo>
+
+        <calcite-button id="sign-in-button" slot="user">Sign in</calcite-button>
+
+        <calcite-navigation-user
+          hidden
+          slot="user"
+          full-name=""
+          username=""
+        ></calcite-navigation-user>
+      </calcite-navigation>
+      <arcgis-map
+        basemap="arcgis/topographic"
+        center="-105, 45"
+        zoom="8"
+      ></arcgis-map>
+    </calcite-shell>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
