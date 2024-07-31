@@ -61,7 +61,8 @@ function init() {
     });
 
   async function destroy() {
-    document.querySelector("arcgis-map")?.destroy();
+    const arcgisMap = document.querySelector("arcgis-map");
+    arcgisMap?.remove();
   }
 
   function signInOrOut() {
