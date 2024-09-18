@@ -4,12 +4,15 @@ import esriId from "@arcgis/core/identity/IdentityManager";
 import OAuthInfo from "@arcgis/core/identity/OAuthInfo";
 import Portal from "@arcgis/core/portal/Portal";
 import "@esri/calcite-components/dist/calcite/calcite.css";
-import { defineCustomElements } from "@esri/calcite-components/dist/loader";
+import { setAssetPath } from "@esri/calcite-components/dist/components";
+import "@esri/calcite-components/dist/components/calcite-button";
+import "@esri/calcite-components/dist/components/calcite-navigation";
+import "@esri/calcite-components/dist/components/calcite-navigation-logo";
+import "@esri/calcite-components/dist/components/calcite-navigation-user";
+import "@esri/calcite-components/dist/components/calcite-shell";
 import "./style.css";
 
-defineCustomElements(window, {
-  resourcesUrl: "https://js.arcgis.com/calcite-components/2.10.1/assets",
-});
+setAssetPath("https://js.arcgis.com/calcite-components/2.12.2/assets");
 
 esriConfig.portalUrl = "https://jsapi.maps.arcgis.com/";
 
