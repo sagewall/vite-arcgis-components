@@ -12,7 +12,7 @@ import "@esri/calcite-components/dist/components/calcite-navigation-user";
 import "@esri/calcite-components/dist/components/calcite-shell";
 import "./style.css";
 
-setAssetPath("https://js.arcgis.com/calcite-components/2.12.2/assets");
+setAssetPath("https://js.arcgis.com/calcite-components/2.13.1/assets");
 
 esriConfig.portalUrl = "https://jsapi.maps.arcgis.com/";
 

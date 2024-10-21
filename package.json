@@ -13,13 +13,12 @@
     "@eslint/js": "^9.5.0",
     "@types/eslint__js": "^8.42.3",
     "eslint": "^8.57.0",
-    "globals": "^15.6.0",
+    "globals": "^15.11.0",
     "typescript": "^5.5.2",
     "typescript-eslint": "^7.14.1",
-    "vite": "^5.3.1"
+    "vite": "^5.4.9"
   },
   "dependencies": {
-    "@arcgis/map-components": "^4.30.6",
-    "@esri/calcite-components": "2.12.2"
+    "@arcgis/map-components": "^4.31.0-next.134"
   }
 }
