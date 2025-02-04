@@ -1,9 +1,7 @@
-import "@arcgis/core/assets/esri/themes/light/main.css";
 import esriConfig from "@arcgis/core/config";
 import esriId from "@arcgis/core/identity/IdentityManager";
 import OAuthInfo from "@arcgis/core/identity/OAuthInfo";
 import Portal from "@arcgis/core/portal/Portal";
-import "@esri/calcite-components/dist/calcite/calcite.css";
 import { setAssetPath } from "@esri/calcite-components/dist/components";
 import "@esri/calcite-components/dist/components/calcite-button";
 import "@esri/calcite-components/dist/components/calcite-navigation";
