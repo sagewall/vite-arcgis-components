@@ -12,7 +12,9 @@ import "@esri/calcite-components/dist/components/calcite-navigation-user";
 import "@esri/calcite-components/dist/components/calcite-shell";
 import "./style.css";
 
-setAssetPath("https://js.arcgis.com/calcite-components/2.13.1/assets");
+setAssetPath(
+  "https://cdn.jsdelivr.net/npm/@esri/calcite-components@3.0.0-next.123/dist/calcite/assets"
+);
 
 esriConfig.portalUrl = "https://jsapi.maps.arcgis.com/";
 
@@ -52,8 +54,10 @@ async function init() {
     portal.authMode = "immediate";
     await portal.load();
 
-    navigationUser!.fullName = portal.user.fullName;
-    navigationUser!.username = portal.user.username;
+    if (navigationUser) {
+      navigationUser.fullName = portal.user?.fullName ?? "";
+      navigationUser.username = portal.user?.username ?? "";
+    }
 
     load();
   } catch (error) {
