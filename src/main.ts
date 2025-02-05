@@ -2,17 +2,12 @@ import esriConfig from "@arcgis/core/config";
 import esriId from "@arcgis/core/identity/IdentityManager";
 import OAuthInfo from "@arcgis/core/identity/OAuthInfo";
 import Portal from "@arcgis/core/portal/Portal";
-import { setAssetPath } from "@esri/calcite-components/dist/components";
-import "@esri/calcite-components/dist/components/calcite-button";
-import "@esri/calcite-components/dist/components/calcite-navigation";
-import "@esri/calcite-components/dist/components/calcite-navigation-logo";
-import "@esri/calcite-components/dist/components/calcite-navigation-user";
-import "@esri/calcite-components/dist/components/calcite-shell";
+import "@esri/calcite-components/components/calcite-button";
+import "@esri/calcite-components/components/calcite-navigation";
+import "@esri/calcite-components/components/calcite-navigation-logo";
+import "@esri/calcite-components/components/calcite-navigation-user";
+import "@esri/calcite-components/components/calcite-shell";
 import "./style.css";
-
-setAssetPath(
-  "https://cdn.jsdelivr.net/npm/@esri/calcite-components@3.0.0-next.123/dist/calcite/assets"
-);
 
 esriConfig.portalUrl = "https://jsapi.maps.arcgis.com/";
 
